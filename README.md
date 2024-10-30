@@ -77,6 +77,7 @@ pip install pytesseract
 
 ## Bibliografía
 [Modelo utilizado para el entrenamiento.](https://universe.roboflow.com/licenseplates-h9qfr/spanish-license-plates)
+
 [Ultralytics Docs.](https://docs.ultralytics.com/)
 
 ## Autoría
