@@ -2,29 +2,29 @@
 
 ## Descripción
 
-El objetivo de esta práctica es conseguir mediante el modelo de detección de objeto YOLO (You Only Look Once) una detección de matrículas españolas. Para ello, ha sido necesario entrenar un modelo, utilizando un dataset de imágenes extraido de [Roboflow](https://universe.roboflow.com/).
+El objetivo de esta práctica es conseguir mediante el modelo de detección de objeto YOLO (_You Only Look Once_) una detección de matrículas españolas. Para ello, ha sido necesario entrenar un modelo, utilizando un dataset de imágenes extraido de [Roboflow](https://universe.roboflow.com/).
 
 ## Tareas del proyecto.
 
-- Detección de personas y vehículos.
+### Detección de personas y vehículos.
 
-Para realizar este apartado utilizamos el modelo ya proporcionado por la librería YOLO (yolo11n.pt), teniendo únicamente que cargar dicho modelo y posteriormente realizar el seguimiente en el vídeo con la función track.
+Para realizar este apartado utilizamos el modelo ya proporcionado por la librería YOLO (_yolo11n.pt_), teniendo únicamente que cargar dicho modelo y posteriormente realizar el seguimiente en el vídeo con la función track.
 
-- Detección y lectura de matrículas.
+### Detección y lectura de matrículas.
 
 Para este apartado es necesario entrenar un modelo nuevo que se especialice en la detección de matriculas con el dataset mencionado en la descripción. Para entrenar al modelo será necesario ejecutar la siguiente orden en la consola de anaconda:
 
-Con CPU:
-```
-yolo detect train model=yolo11n.pt data=dataset/data.yaml imgsz=416 batch=4 device=CPU epochs=40
-```
+  - Con CPU:
+  ```
+  yolo detect train model=yolo11n.pt data=dataset/data.yaml imgsz=416 batch=4 device=CPU epochs=40
+  ```
+  
+  - Con GPU:
+  ```
+  yolo detect train model=yolo11n.pt data=dataset/miarchivo.yml imgsz=416 batch=4 device=0 epochs=40
+  ```
 
-Con GPU:
-```
-yolo detect train model=yolo11n.pt data=dataset/miarchivo.yml imgsz=416 batch=4 device=0 epochs=40
-```
-
-Posteriormente se realiza la detección de matriculas cada vez que se detecte un vehículo y se utiliza el OCR (Optical Character Recognition) de pytesseract para leer la matrícula.
+Posteriormente se realiza la detección de matrículas cada vez que se detecte un vehículo y se utiliza el OCR (Optical Character Recognition) de pytesseract para leer la matrícula.
 
 - Conteo de cada clase.
 
@@ -44,7 +44,7 @@ fotograma, tipo_objeto, confianza, identificador_tracking, x1, y1, x2, y2, matr�
 
 Como añadido final, se ha encontrado problemas con el OCR al no detectar correctamente las matrículas. Se ha tratado de realizar preprocesado de imagen o el OCR de EasyOCR, pero hemos obtenido peores resultados y decidimos dejarlo como estaba.
 
-## Demostración.
+## Demostración
 
 ![Demo](demo.gif)
 
@@ -70,7 +70,7 @@ pip install lapx
 ```
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
 ```
-### Pytesseract.
+### Pytesseract
 ```
 pip install pytesseract
 ```
